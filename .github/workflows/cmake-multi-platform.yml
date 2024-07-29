@@ -56,8 +56,8 @@ jobs:
     - name: Get project sources
       uses: actions/checkout@v3
 
-    - name: TestLS
-      run: ls
+    - name: ChangeDirectory
+      run: cd SDLWindow
       
     - name: Configure CMake
     
