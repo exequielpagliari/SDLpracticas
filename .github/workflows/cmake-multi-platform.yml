@@ -56,14 +56,14 @@ jobs:
     - name: Get project sources
       uses: actions/checkout@v3
 
-    - name: ChangeDirectory
-      run: cd SDLWindow
       
-    - name: Configure CMake
-    
+    - name: Configure CMake SDLWindow
       run: cd SDLWindow && cmake -B build ${{ matrix.os }} --debug-output   -DCMAKE_C_FLAGS=-fcommon
-    - name: Build
+      
+    - name: Build SDLWindow
       run: cd SDLWindow && cmake --build build/
+
+      
 
 
 
