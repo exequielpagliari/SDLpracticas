@@ -61,7 +61,7 @@ jobs:
       
     - name: Configure CMake
     
-      run: cmake -B build ${{ matrix.os }} --debug-output   -DCMAKE_C_FLAGS=-fcommon
+      run: cd SDLWindow && cmake -B build ${{ matrix.os }} --debug-output   -DCMAKE_C_FLAGS=-fcommon
     - name: Build
       run: cmake --build build/
 
