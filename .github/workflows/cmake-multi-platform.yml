@@ -55,9 +55,12 @@ jobs:
     
     - name: Get project sources
       uses: actions/checkout@v3
+
+    - name: TestLS
+      run: ls
       
     - name: Configure CMake
-      working-directory: /SDLWindow  # Cambia la ruta
+    
       run: cmake -B build ${{ matrix.os }} --debug-output   -DCMAKE_C_FLAGS=-fcommon
     - name: Build
       run: cmake --build build/
