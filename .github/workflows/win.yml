@@ -17,3 +17,15 @@ jobs:
         with:
           sources_destination: .
           binaries_destination: bin
+
+      - name: Download SDL2_image
+        uses: albin-johansson/download-sdl2-image@latest
+        with:
+          sources_destination: .
+          binaries_destination: bin
+      
+      - name: Download SDL2_mixer
+        uses: albin-johansson/download-sdl2-mixer@latest
+        with:
+          sources_destination: .
+          binaries_destination: bin
