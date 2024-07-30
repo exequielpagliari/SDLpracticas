@@ -40,7 +40,9 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	}
 	std::cout << "init success\n";
 	m_bRunning = true; // everything inited successfully,start the main loop
-
+    SDL_Surface* pTempSurface = SDL_LoadBMP("assets/bmp_24.bmp"); 
+	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface); 
+	SDL_FreeSurface(pTempSurface);
 	return true;
 }
 
