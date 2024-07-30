@@ -1,0 +1,19 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Make directories
+        shell: cmd
+        run: mkdir bin
+
+      - name: Download SDL2
+        uses: albin-johansson/download-sdl2@latest
+        with:
+          sources_destination: .
+          binaries_destination: bin
