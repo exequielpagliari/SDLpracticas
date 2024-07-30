@@ -64,7 +64,7 @@ jobs:
       run: cd SDLWindow && cmake --build build/
 
     - name: Configure CMake SDLWindow
-      run: cd SDLFraccionado && cmake -B build ${{ matrix.os }} --debug-output   -DCMAKE_C_FLAGS=-fcommon
+      run: cd SDLFraccionado && cmake -B build ${{ matrix.os }} --debug-output   
       
     - name: Build SDLWindow
       run: cd SDLFraccionado && cmake --build build/
