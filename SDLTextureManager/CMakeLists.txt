@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.7)
 
-project(SDLImage)
+project(SDLTextureManager)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
@@ -19,10 +19,12 @@ add_custom_target(copy-runtime-files ALL
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/Debug/assets
     DEPENDS ${MY_TARGET})
 
-add_executable(SDLImage WIN32 	main.cpp  
+add_executable(SDLTextureManager WIN32 	main.cpp  
 			      	src/Game.cpp
+				src/TextureManager.cpp
 				includes/Game.h
+				includes/TextureManager.h
 				)
 
-target_link_libraries(SDLImage ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
+target_link_libraries(SDLTextureManager ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 

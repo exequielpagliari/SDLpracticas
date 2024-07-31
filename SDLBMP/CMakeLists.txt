@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(SDLWindows)
+project(SDLBMP)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
@@ -18,10 +18,10 @@ add_custom_target(copy-runtime-files ALL
     COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/Debug/assets
     DEPENDS ${MY_TARGET})
 
-add_executable(SDL2Test WIN32 	main.cpp  
+add_executable(SDLBMP WIN32 	main.cpp  
 			      	src/Game.cpp
 				includes/Game.h
 				)
 
-target_link_libraries(SDL2Test ${SDL2_LIBRARIES})
+target_link_libraries(SDLBMP ${SDL2_LIBRARIES})
 
