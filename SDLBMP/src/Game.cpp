@@ -40,6 +40,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	}
 	std::cout << "init success\n";
 	m_bRunning = true; // everything inited successfully,start the main loop
+
     SDL_Surface* pTempSurface = SDL_LoadBMP("assets/bmp_24.bmp"); 
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface); 
 	SDL_FreeSurface(pTempSurface);
@@ -49,6 +50,22 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	  m_destinationRectangle.y = m_sourceRectangle.y = 0; 
 	  m_destinationRectangle.w = m_sourceRectangle.w;
 	  m_destinationRectangle.h = m_sourceRectangle.h;
+
+
+	SDL_Surface* pTempSurfaceAnim =
+		  SDL_LoadBMP("assets/animacion.bmp");
+	m_pTextureAnimacion = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurfaceAnim);
+	SDL_FreeSurface(pTempSurfaceAnim);
+	SDL_QueryTexture(m_pTextureAnimacion, NULL, NULL,
+		&m_sourceRectangleanimacion.w, &m_sourceRectangleanimacion.h);
+	m_sourceRectangleanimacion.x = 0;
+	m_sourceRectangleanimacion.y = 0;
+	m_destinationRectangleanimacion.w = m_sourceRectangleanimacion.w = 80;
+	m_destinationRectangleanimacion.h = m_sourceRectangleanimacion.h = 80;
+	m_destinationRectangleanimacion.x = 320;
+	m_destinationRectangleanimacion.y = 160;
+	
+
 	return true;
 }
 
@@ -56,6 +73,7 @@ void Game::render()
 {
 	SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
 	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle,  &m_destinationRectangle);
+	SDL_RenderCopy(m_pRenderer, m_pTextureAnimacion, &m_sourceRectangleanimacion, &m_destinationRectangleanimacion);
 	SDL_RenderPresent(m_pRenderer); // draw to the screen
 }
 
@@ -85,7 +103,8 @@ void Game::clean()
 
 void Game::update()
 {
-
+	m_sourceRectangleanimacion.x = 80 * int(((SDL_GetTicks() / 100) % 4));
+	m_destinationRectangle.x = 80 * int(((SDL_GetTicks() / 32) % 20));
 }
 
 Game::Game()

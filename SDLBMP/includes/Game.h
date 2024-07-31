@@ -19,9 +19,12 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 
-SDL_Texture* m_pTexture; // the new SDL_Texture variable 
-SDL_Rect m_sourceRectangle; // the first rectangle 
-SDL_Rect m_destinationRectangle; // another rectangle
+	SDL_Texture* m_pTexture; // the new SDL_Texture variable 
+	SDL_Texture* m_pTextureAnimacion; // the new SDL_Texture variable 
+	SDL_Rect m_sourceRectangle; // the first rectangle 
+	SDL_Rect m_destinationRectangle; // another rectangle
+	SDL_Rect m_sourceRectangleanimacion; // the first rectangle 
+	SDL_Rect m_destinationRectangleanimacion; // another rectangle
 
 
 	bool m_bRunning;
