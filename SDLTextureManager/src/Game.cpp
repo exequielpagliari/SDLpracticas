@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-TextureManager m_textureManager;
+
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
@@ -45,10 +45,15 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 
 
 	
-	
-
-	m_textureManager.load("assets/Free Pixel Art Forest/Background.png",
+	if (!TextureManager::Instance()->load("assets/Base Character - Free/idle.png", "idle", m_pRenderer))
+	{
+		return false;
+	}
+	TextureManager::Instance()->load("assets/Free Pixel Art Forest/Background.png",
 		"background", m_pRenderer);
+
+
+
 	/*
     SDL_Surface* pTempSurface = IMG_Load("assets/Free Pixel Art Forest/Background.png"); 
 	m_pTexture = SDL_CreateTextureFromSurface(m_pRenderer, pTempSurface); 
@@ -82,21 +87,23 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 void Game::render()
 {
 	SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
-	m_textureManager.draw("background", 0, 0, 640, 200,
+	TextureManager::Instance()->draw("background", 0, 0, 320 , 320,
 		m_pRenderer);
-	/*
-	SDL_RenderCopy(m_pRenderer, m_pTexture, 0,  0);
+
+
+
+	
 	if (int(((SDL_GetTicks() / 1000) % 2)))
 	{
-		SDL_RenderCopy(m_pRenderer, m_pTextureAnimacion, &m_sourceRectangleanimacion, &m_destinationRectangleanimacion);
+		TextureManager::Instance()->drawFrame("idle", 50, 50, 80, 80, 1, m_currentFrame,
+			m_pRenderer); // pass in the horizontal flip
 	}
 	else
 	{
-		SDL_RenderCopyEx(m_pRenderer, m_pTextureAnimacion,
-			&m_sourceRectangleanimacion, &m_destinationRectangleanimacion,
-			0, 0, SDL_FLIP_HORIZONTAL); // pass in the horizontal flip
+		TextureManager::Instance()->drawFrame("idle", 50, 50, 80, 80, 1, m_currentFrame,
+			m_pRenderer, SDL_FLIP_HORIZONTAL); // pass in the horizontal flip
 	}
-	*/
+
 	SDL_RenderPresent(m_pRenderer); // draw to the screen
 }
 
@@ -127,6 +134,7 @@ void Game::clean()
 void Game::update()
 {
 	//m_sourceRectangleanimacion.x = 80 * int(((SDL_GetTicks() / 100) % 4));
+	m_currentFrame = int(((SDL_GetTicks() / 100) % 4));
 
 
 }

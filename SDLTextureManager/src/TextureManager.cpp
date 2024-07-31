@@ -23,9 +23,7 @@ bool TextureManager::load(std::string fileName, std::string
 	return false;
 }
 
-TextureManager::TextureManager()
-{
-}
+
 
 TextureManager::~TextureManager()
 {
@@ -41,6 +39,20 @@ void TextureManager::draw(std::string id, int x, int y, int
 	srcRect.y = 0;
 	srcRect.w = destRect.w = width;
 	srcRect.h = destRect.h = height;
+	destRect.x = x;
+	destRect.y = y;
+	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRect,
+		&destRect, 0, 0, flip);
+}
+
+void TextureManager::drawBackground(std::string id, int x, int y, SDL_Renderer* pRenderer,
+	SDL_RendererFlip flip)
+{
+	SDL_Rect srcRect;
+	SDL_Rect destRect;
+	SDL_QueryTexture(m_textureMap[id], NULL, NULL, &srcRect.w, &srcRect.h);
+	destRect.w = srcRect.w;
+	destRect.h = srcRect.h;
 	destRect.x = x;
 	destRect.y = y;
 	SDL_RenderCopyEx(pRenderer, m_textureMap[id], &srcRect,
@@ -64,3 +76,12 @@ void TextureManager::drawFrame(std::string id, int x, int y, int
 		&destRect, 0, 0, flip);
 }
 
+
+TextureManager* TextureManager::s_pInstance = nullptr;
+
+TextureManager* TextureManager::Instance() {
+	if (s_pInstance == nullptr) {
+		s_pInstance = new TextureManager();
+	}
+	return s_pInstance;
+}

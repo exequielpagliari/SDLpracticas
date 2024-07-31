@@ -8,7 +8,7 @@
 class Game
 {
 	int m_currentFrame;
-	TextureManager m_textureManager;
+
 public:
 	Game();
 	~Game();
