@@ -73,7 +73,17 @@ void Game::render()
 {
 	SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
 	SDL_RenderCopy(m_pRenderer, m_pTexture, &m_sourceRectangle,  &m_destinationRectangle);
-	SDL_RenderCopy(m_pRenderer, m_pTextureAnimacion, &m_sourceRectangleanimacion, &m_destinationRectangleanimacion);
+	if (int(((SDL_GetTicks() / 1000) % 2)))
+	{
+		SDL_RenderCopy(m_pRenderer, m_pTextureAnimacion, &m_sourceRectangleanimacion, &m_destinationRectangleanimacion);
+	}
+	else
+	{
+		SDL_RenderCopyEx(m_pRenderer, m_pTextureAnimacion,
+			&m_sourceRectangleanimacion, &m_destinationRectangleanimacion,
+			0, 0, SDL_FLIP_HORIZONTAL); // pass in the horizontal flip
+	}
+
 	SDL_RenderPresent(m_pRenderer); // draw to the screen
 }
 
@@ -105,6 +115,7 @@ void Game::update()
 {
 	m_sourceRectangleanimacion.x = 80 * int(((SDL_GetTicks() / 100) % 4));
 	m_destinationRectangle.x = 80 * int(((SDL_GetTicks() / 32) % 20));
+
 }
 
 Game::Game()
