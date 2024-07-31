@@ -63,17 +63,23 @@ jobs:
     - name: Build SDLWindow
       run: cd SDLWindow && cmake --build build/
 
-    - name: Configure CMake SDLWindow
+    - name: Configure CMake SDLFraccionado
       run: cd SDLFraccionado && cmake -B build ${{ matrix.os }} --debug-output   
       
-    - name: Build SDLWindow
+    - name: Build SDLFraccionado
       run: cd SDLFraccionado && cmake --build build/
 
     - name: Configure CMake SDLBMP
       run: cd SDLBMP && cmake -B build ${{ matrix.os }} --debug-output   
       
-    - name: Build SDLWindow
+    - name: Build SDLBMP
       run: cd SDLBMP && cmake --build build/
+
+    - name: Configure CMake SDLImage
+      run: cd SDLImage && cmake -B build ${{ matrix.os }} --debug-output   
+      
+    - name: Build SDLImage
+      run: cd SDLImage && cmake --build build/
 
       
 
