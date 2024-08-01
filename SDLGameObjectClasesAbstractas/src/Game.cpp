@@ -76,7 +76,12 @@ void Game::render()
 	SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
 
 
-
+	// loop through our objects and draw them
+	for (std::vector<GameObject*>::size_type i = 0; i !=
+		m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw();
+	}
 
 	
 
