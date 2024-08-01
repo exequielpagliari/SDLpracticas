@@ -86,6 +86,12 @@ jobs:
       
     - name: Build SDLTextureManager
       run: cd SDLTextureManager && cmake --build build/
+      
+    - name: Configure CMake SDLGameObject
+      run: cd SDLGameObject && cmake -B build ${{ matrix.os }} --debug-output   
+      
+    - name: Build SDLGameObject
+      run: cd SDLGameObject && cmake --build build/
 
       
 
