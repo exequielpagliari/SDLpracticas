@@ -20,8 +20,6 @@ public:
 		height, int currentRow, int currentFrame, SDL_Renderer*
 		pRenderer, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	
-	void TextureManager::drawBackground(std::string id, int x, int y, SDL_Renderer* pRenderer,
-		SDL_RendererFlip flip = SDL_FLIP_NONE);
 
 	bool load(std::string fileName, std::string id,
 		SDL_Renderer* pRenderer);
