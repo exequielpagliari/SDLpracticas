@@ -98,6 +98,12 @@ jobs:
       
     - name: Build SDLGameObjectClasesAbstractas
       run: cd SDLGameObjectClasesAbstractas && cmake --build build/
+      
+    - name: Configure CMake SDLVector
+      run: cd SDLVector && cmake -B build ${{ matrix.os }} --debug-output   
+      
+    - name: Build SDLVector
+      run: cd SDLVector && cmake --build build/
 
 
       
