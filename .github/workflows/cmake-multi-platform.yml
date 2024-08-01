@@ -92,6 +92,13 @@ jobs:
       
     - name: Build SDLGameObject
       run: cd SDLGameObject && cmake --build build/
+      
+    - name: Configure CMake SDLGameObjectClasesAbstractas
+      run: cd SDLGameObjectClasesAbstractas && cmake -B build ${{ matrix.os }} --debug-output   
+      
+    - name: Build SDLGameObjectClasesAbstractas
+      run: cd SDLGameObjectClasesAbstractas && cmake --build build/
+
 
       
 
