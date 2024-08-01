@@ -4,8 +4,11 @@
 class Player : public SDLGameObject
 {
 public:
-	Player(const LoaderParams* pParams);
+	Player(const LoaderParams* pParams, bool arriba = true);
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
+	int GetY();
+	int GetX();
+	bool arriba = true;
 };

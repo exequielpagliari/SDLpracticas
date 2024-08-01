@@ -7,7 +7,7 @@
 int main(int argc, char* argv[])
 {
 	std::cout << "game init attempt...\n";
-	if (Game::Instance()->init("SDLBMP", 100, 100, 640, 480, 0))
+	if (Game::Instance()->init("SDLGameObjectClasesAbstractas", 100, 100, 640, 480, 0))
 	{
 		std::cout << "game init success!\n";
 	
