@@ -4,6 +4,7 @@
 
 
 
+
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
 	// attempt to initialize SDL
@@ -52,8 +53,22 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	TextureManager::Instance()->load("assets/Free Pixel Art Forest/Background.png",
 		"background", m_pRenderer);
 
-	m_go.load(100, 100, 128, 82, "idle");
-	m_player.load(300, 300, 128, 82, "idle");
+	GameObject* m_player;
+	GameObject* m_enemy1;
+	GameObject* m_enemy2;
+	GameObject* m_enemy3;
+	m_player = new Player();
+	m_enemy1 = new Enemy();
+	m_enemy2 = new Enemy();
+	m_enemy3 = new Enemy();
+	m_player->load(100, 100, 128, 82, "idle");
+	m_enemy1->load(300, 300, 80, 80, "idle");
+	m_enemy2->load(150, 200, 80, 80, "idle");
+	m_enemy3->load(400, 400, 80, 80, "idle");
+	m_gameObjects.push_back(m_player);
+	m_gameObjects.push_back(m_enemy1);
+	m_gameObjects.push_back(m_enemy2);
+	m_gameObjects.push_back(m_enemy3);
 
 
 	
@@ -66,9 +81,13 @@ void Game::render()
 	SDL_RenderClear(m_pRenderer); // clear the renderer to the draw color
 
 
-	m_go.draw(m_pRenderer);
-	m_player.draw(m_pRenderer);
 
+	// loop through our objects and draw them
+	for (std::vector<GameObject*>::size_type i = 0; i !=
+		m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->draw(m_pRenderer);
+	}
 	
 
 
@@ -101,10 +120,13 @@ void Game::clean()
 
 void Game::update()
 {
+	// loop through and update our objects
+	for (std::vector<GameObject*>::size_type i = 0; i !=
+		m_gameObjects.size(); i++)
+	{
+		m_gameObjects[i]->update();
+	}
 
-
-	m_go.update();
-	m_player.update();
 
 }
 

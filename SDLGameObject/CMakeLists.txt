@@ -24,10 +24,12 @@ add_executable(SDLGameObject WIN32 	main.cpp
 				src/TextureManager.cpp
 				src/GameObject.cpp
 				src/Player.cpp
+				src/Enemy.cpp
 				includes/Game.h
 				includes/TextureManager.h
 				includes/GameObject.h
 				includes/Player.h
+				includes/Enemy.h
 				)
 
 target_link_libraries(SDLGameObject ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
