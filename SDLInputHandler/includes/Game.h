@@ -39,7 +39,7 @@ private:
 
 	
 	static Game* s_pInstance;
-	bool m_bRunning;
+	bool m_bRunning = false;
 };	
 // create the typedef
 typedef Game TheGame;

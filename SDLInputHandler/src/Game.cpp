@@ -6,6 +6,7 @@
 Game* Game::s_pInstance = nullptr;
 
 
+
 Game* Game::Instance() {
 	if (s_pInstance == nullptr) {
 		s_pInstance = new Game();
