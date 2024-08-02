@@ -15,7 +15,7 @@ void Player::update()
 	m_velocity.setY(0);
 	handleInput(); // add our function
 	m_currentFrame = int(((SDL_GetTicks() / 100) % 4));
-	/*
+
 	if (TheInputHandler::Instance()->getButtonState(0, 0))
 	{
 		m_velocity.setX(1);
@@ -50,10 +50,10 @@ void Player::update()
 	{
 		m_velocity.setX(1);
 	}
-	
+
 	Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
 	m_velocity = (*vec - m_position) / 100;
-	*/
+
 	SDLGameObject::update();
 }
 void Player::clean()
@@ -91,6 +91,5 @@ void Player::handleInput()
 		}
 	}
 
-	Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
-	m_velocity = (*vec - m_position) / 100;
+
 }
