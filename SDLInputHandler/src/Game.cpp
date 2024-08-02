@@ -51,7 +51,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	}
 	std::cout << "init success\n";
 	m_bRunning = true; // everything inited successfully,start the main loop
-	TheInputHandler::Instance()->initialiseJoysticks();
+	
 
 	
 	if (!TextureManager::Instance()->load("assets/Base Character - Free/idle.png", "idle", m_pRenderer))
@@ -91,18 +91,9 @@ void Game::render()
 
 void Game::handleEvents()
 {
-	SDL_Event event;
-	if(SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-			case SDL_QUIT:
-			m_bRunning = false;
-			break;
-			default:
-			break;
-		}
-	}
+	
+
+	
 }
 
 void Game::clean()

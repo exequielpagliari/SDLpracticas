@@ -1,7 +1,12 @@
 #include "SDL.h"
 #include <vector>
 #include <iostream>
-#pragma once
+#include <Game.h>
+
+#ifndef __InputHandler__
+#define __InputHandler__
+
+
 
 class InputHandler
 {
@@ -23,3 +28,5 @@ private:
 	bool m_bJoysticksInitialised;
 };
 typedef InputHandler TheInputHandler;
+
+#endif // ARCHIVO_SINGLETON

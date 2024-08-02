@@ -15,9 +15,9 @@ FILE(GLOB MiProyecto_SRC "includes/*.h")
 # FILE GLOB selecciona todos los archivos que cumplan la característica y los almacena en MiProyecto_SRC
 # GLOB no es recursivo. Si lo necesitas, usa GLOB_RECURSE
 
-add_custom_target(copy-runtime-files ALL
-    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/Debug/assets
-    DEPENDS ${MY_TARGET})
+#add_custom_target(copy-runtime-files ALL
+#    COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/Debug/assets
+#    DEPENDS ${MY_TARGET})
 
 add_executable(SDLInputHandler WIN32 	main.cpp  
 			      	src/Game.cpp

@@ -3,9 +3,8 @@
 #include <Player.h>
 #include <Enemy.h>
 #include <vector>
-#include <InputHandler.h>
-#pragma once
 
+#pragma once
 
 
 #ifndef __Game__
@@ -25,7 +24,7 @@ public:
 	void handleEvents();
 	void clean();
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
-	
+
 
 
 

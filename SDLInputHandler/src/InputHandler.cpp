@@ -29,6 +29,7 @@ void InputHandler::initialiseJoysticks()
 		SDL_JoystickEventState(SDL_ENABLE);
 		m_bJoysticksInitialised = true;
 		std::cout << "Initialised " << m_joysticks.size() << "joystick(s)";
+
 	}
 	else
 	{
@@ -59,12 +60,17 @@ InputHandler* InputHandler::Instance()
 	
 }
 
+
+
 void InputHandler::update()
 {
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-
+		if (event.type == SDL_QUIT)
+		{
+			TheGame::Instance()->clean();
+		}
 	}
 }
 
@@ -72,3 +78,4 @@ InputHandler::~InputHandler()
 {
 
 }
+
