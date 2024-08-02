@@ -123,12 +123,14 @@ void Game::update()
 
 }
 
-Game::Game()
-{
-
-}
+Game::Game() : m_pWindow(0),
+m_pRenderer(0),
+m_bRunning(false)
+{}
 
 Game::~Game()
 {
-
+	// we must clean up after ourselves to prevent memory leaks
+	m_pRenderer = 0;
+	m_pWindow = 0;
 }

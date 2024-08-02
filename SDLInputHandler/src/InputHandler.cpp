@@ -3,7 +3,7 @@
 
 
 
-InputHandler* InputHandler::s_pInstance = 0;
+InputHandler* InputHandler::s_pInstance = nullptr;
 
 
 
@@ -192,12 +192,25 @@ void InputHandler::update()
 			m_mouseButtonStates[RIGHT] = false;
 		}
 	}
+
+	if (event.type == SDL_MOUSEMOTION)
+	{
+		m_mousePosition->setX(event.motion.x);
+		m_mousePosition->setY(event.motion.y);
+	}
 }
 
 
 InputHandler::~InputHandler()
 {
+	// delete anything we created dynamically
+	delete m_mousePosition;
 
+	// clear our arrays
+	m_joystickValues.clear();
+	m_joysticks.clear();
+	m_buttonStates.clear();
+	m_mouseButtonStates.clear();
 }
 
 

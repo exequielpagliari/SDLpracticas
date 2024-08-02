@@ -38,19 +38,25 @@ public:
 	{
 		return m_mouseButtonStates[buttonNumber];
 	}
+
+	Vector2D* getMousePosition()
+	{
+		return m_mousePosition;
+	}
 private:
-	InputHandler() {
+	InputHandler() : 
+		m_bJoysticksInitialised(false), m_mousePosition(new Vector2D(0, 0)) {
 		for (int i = 0; i < 3; i++)
 		{
 			m_mouseButtonStates.push_back(false);
 		}
 	};
-
+	Vector2D* m_mousePosition;
 	static InputHandler* s_pInstance;
 	std::vector<SDL_Joystick*> m_joysticks;
 	std::vector<std::vector<bool>> m_buttonStates;
 	std::vector<bool> m_mouseButtonStates;
-	bool m_bJoysticksInitialised;
+	bool m_bJoysticksInitialised{};
 
 };
 typedef InputHandler TheInputHandler;

@@ -14,7 +14,7 @@
 class Game
 {
 	
-	int m_currentFrame;
+	int m_currentFrame{};
 	std::vector<GameObject*> m_gameObjects;
 public:
 	static Game* Instance();
