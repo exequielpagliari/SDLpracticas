@@ -50,7 +50,7 @@ void InputHandler::clean()
 {
 	if (m_bJoysticksInitialised)
 	{
-		for (unsigned int i = 0; i < SDL_NumJoysticks(); i++)
+		for (int i = 0; i < SDL_NumJoysticks(); i++)
 		{
 			SDL_JoystickClose(m_joysticks[i]);
 		}
@@ -196,8 +196,8 @@ void InputHandler::update()
 	
 		if (event.type == SDL_MOUSEMOTION)
 		{
-			m_mousePosition->setX(event.motion.x);
-			m_mousePosition->setY(event.motion.y);
+			m_mousePosition->setX((float)event.motion.x);
+			m_mousePosition->setY((float)event.motion.y);
 		}
 	}
 }
@@ -222,11 +222,11 @@ int InputHandler::xvalue(int joy, int stick)
 	{
 		if (stick == 1)
 		{
-			return m_joystickValues[joy].first->getX();
+			return (int)m_joystickValues[joy].first->getX();
 		}
 		else if (stick == 2)
 		{
-			return m_joystickValues[joy].second->getX();
+			return (int)m_joystickValues[joy].second->getX();
 		}
 	}
 	return 0;
@@ -237,11 +237,11 @@ int InputHandler::yvalue(int joy, int stick)
 	{
 		if (stick == 1)
 		{
-			return m_joystickValues[joy].first->getY();
+			return (int)m_joystickValues[joy].first->getY();
 		}
 		else if (stick == 2)
 		{
-			return m_joystickValues[joy].second->getY();
+			return (int)m_joystickValues[joy].second->getY();
 		}
 	}
 	return 0;
