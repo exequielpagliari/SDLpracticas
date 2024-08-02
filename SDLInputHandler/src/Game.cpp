@@ -1,5 +1,6 @@
 #include <Game.h>
 #include <iostream>
+#include <InputHandler.h>
 
 
 Game* Game::s_pInstance = nullptr;
@@ -92,19 +93,7 @@ void Game::render()
 void Game::handleEvents()
 {
 	TheInputHandler::Instance()->update();
-	SDL_Event event;
-	if (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			
-			break;
-		default:
-			break;
-		}
-	}
-	
+		
 }
 
 void Game::clean()
@@ -114,6 +103,11 @@ void Game::clean()
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);
 	SDL_Quit();
+}
+
+void Game::quit()
+{
+	m_bRunning = false;
 }
 
 void Game::update()

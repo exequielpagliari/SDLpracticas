@@ -1,4 +1,5 @@
 #include "InputHandler.h"
+#include <Game.h>
 
 
 
@@ -69,7 +70,8 @@ void InputHandler::update()
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
-
+		if (event.type == SDL_QUIT)
+		TheGame::Instance()->quit();
 	
 
 		if (event.type == SDL_JOYAXISMOTION)

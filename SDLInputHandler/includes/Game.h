@@ -4,7 +4,7 @@
 #include <Enemy.h>
 #include <Background.h>
 #include <vector>
-#include <InputHandler.h>
+
 
 #pragma once
 
@@ -26,7 +26,7 @@ public:
 	void handleEvents();
 	void clean();
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
-
+	void quit();
 
 
 
