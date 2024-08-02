@@ -27,6 +27,7 @@ add_executable(SDLInputHandler WIN32 	main.cpp
 				src/Enemy.cpp
 				src/SDLGameObject.cpp
 				src/InputHandler.cpp
+				src/Background.cpp
 				includes/Game.h
 				includes/TextureManager.h
 				includes/GameObject.h
@@ -36,6 +37,7 @@ add_executable(SDLInputHandler WIN32 	main.cpp
 				includes/LoaderParams.h
 				includes/Vector2D.h
 				includes/InputHandler.h
+				includes/Background.h
 				)
 
 target_link_libraries(SDLInputHandler ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

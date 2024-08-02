@@ -1,4 +1,6 @@
 #include <SDLGameObject.h>
+#include <InputHandler.h>
+
 
 
 class Player : public SDLGameObject
@@ -9,4 +11,6 @@ public:
 	virtual void update();
 	virtual void clean();
 	bool arriba = true;
+private:
+	void handleInput();
 };

@@ -1,7 +1,8 @@
 #include "SDL.h"
 #include <vector>
 #include <iostream>
-#include <Game.h>
+#include <Vector2D.h>
+
 
 #ifndef __InputHandler__
 #define __InputHandler__
@@ -12,7 +13,10 @@ class InputHandler
 {
 public:
 	static InputHandler* Instance();
-	
+	std::vector<std::pair<Vector2D*, Vector2D*>> m_joystickValues;
+	int xvalue(int joy, int stick);
+	int yvalue(int joy, int stick);
+	const int m_joystickDeadZone = 10000;
 	void update();
 	void clean();
 	~InputHandler();

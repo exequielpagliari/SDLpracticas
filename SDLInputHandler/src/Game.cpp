@@ -14,7 +14,7 @@ Game* Game::Instance() {
 
 bool Game::init(const char* title, int xpos, int ypos, int width, int height, int flags)
 {
-
+	TheInputHandler::Instance()->initialiseJoysticks();
 	// attempt to initialize SDL
 		if(SDL_Init(SDL_INIT_EVERYTHING) == 0)
 		{
@@ -54,18 +54,18 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	
 
 	
-	if (!TextureManager::Instance()->load("assets/Base Character - Free/idle.png", "idle", m_pRenderer))
-	{
-		return false;
-	}
-	TextureManager::Instance()->load("assets/Free Pixel Art Forest/Background.png",
-		"background", m_pRenderer);
+	TextureManager::Instance()->load("assets/Base Character - Free/idle.png", "idle", m_pRenderer);
+	
+	TextureManager::Instance()->load("assets/Free Pixel Art Forest/Background.png", "background", m_pRenderer);
 
 
+	m_gameObjects.push_back(new Background(new LoaderParams(0, -200, 650, 700,
+		"background")));
 	m_gameObjects.push_back(new Player(new LoaderParams(100, 100, 80, 80,
 		"idle")));
 	m_gameObjects.push_back(new Enemy(new LoaderParams(300, 300, 80, 80,
 		"idle")));
+
 	
 
 	return true;
@@ -91,13 +91,25 @@ void Game::render()
 
 void Game::handleEvents()
 {
-	
-
+	TheInputHandler::Instance()->update();
+	SDL_Event event;
+	if (SDL_PollEvent(&event))
+	{
+		switch (event.type)
+		{
+		case SDL_QUIT:
+			
+			break;
+		default:
+			break;
+		}
+	}
 	
 }
 
 void Game::clean()
 {
+	TheInputHandler::Instance()->clean();
 	std::cout << "cleaning game\n";
 	SDL_DestroyWindow(m_pWindow);
 	SDL_DestroyRenderer(m_pRenderer);

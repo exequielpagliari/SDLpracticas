@@ -1,6 +1,6 @@
 #include <Game.h>
 #include <SDL.h>
-#include <InputHandler.h>
+
 
 const int FPS = 60;
 const int DELAY_TIME = 1000.0f / FPS;
@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 {
 	Uint32 frameStart, frameTime;
 	std::cout << "game init attempt...\n";
-	TheInputHandler::Instance()->initialiseJoysticks();
+	
 	if (Game::Instance()->init("SDLVector", 100, 100, 640, 480, 0))
 	{
 		std::cout << "game init success!\n";
@@ -19,7 +19,7 @@ int main(int argc, char* argv[])
 		{
 			frameStart = SDL_GetTicks();
 			TheGame::Instance() ->handleEvents();
-			TheInputHandler::Instance()->update();
+			
 			TheGame::Instance()	->update();
 
 			TheGame::Instance() ->render();
@@ -40,7 +40,7 @@ int main(int argc, char* argv[])
 	std::cout << "game closing...\n";
 	
 	TheGame::Instance()	->clean();
-	TheInputHandler::Instance()->clean();
+	
 	
 	return 0;
 }

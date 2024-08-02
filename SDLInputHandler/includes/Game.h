@@ -2,7 +2,9 @@
 #include <TextureManager.h>
 #include <Player.h>
 #include <Enemy.h>
+#include <Background.h>
 #include <vector>
+#include <InputHandler.h>
 
 #pragma once
 
