@@ -111,9 +111,6 @@ jobs:
     - name: Build SDLInputHandler
       run: cd SDLInputHandler && cmake --build build/
 
-    - name: Build SDLInputHandler
-      run: cd SDLInputHandler && cp -r assets build && cd build && ./SDLInputHandler
-
 
       
 
