@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
 	Uint32 frameStart, frameTime;
 	std::cout << "game init attempt...\n";
 	
-	if (Game::Instance()->init("SDLInputHandler", 100, 100, 640, 480, 0))
+	if (Game::Instance()->init("SDLGameStates", 100, 100, 640, 480, 0))
 	{
 		std::cout << "game init success!\n";
 	
