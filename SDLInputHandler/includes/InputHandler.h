@@ -26,7 +26,7 @@ public:
 	void clean();
 	~InputHandler();
 	void initialiseJoysticks();
-	bool joysticksInitialised() {
+	bool joysticksInitialised()  {
 		return m_bJoysticksInitialised;
 	}
 	bool getButtonState(int joy, int buttonNumber)

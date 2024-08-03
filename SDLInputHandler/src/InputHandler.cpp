@@ -18,7 +18,7 @@ void InputHandler::initialiseJoysticks()
 		for (int i = 0; i < SDL_NumJoysticks(); i++)
 		{
 			SDL_Joystick* joy = SDL_JoystickOpen(i);
-			if (SDL_JoystickOpen(i) != nullptr)
+			if (SDL_JoystickOpen(i) != 0)
 			{
 				m_joysticks.push_back(joy);
 				m_joystickValues.push_back(std::make_pair(new
@@ -48,6 +48,7 @@ void InputHandler::initialiseJoysticks()
 
 void InputHandler::clean()
 {
+	
 	if (m_bJoysticksInitialised)
 	{
 		for (int i = 0; i < SDL_NumJoysticks(); i++)
@@ -55,6 +56,7 @@ void InputHandler::clean()
 			SDL_JoystickClose(m_joysticks[i]);
 		}
 	}
+	
 }
 
 
