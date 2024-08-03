@@ -43,6 +43,11 @@ public:
 	{
 		return m_mousePosition;
 	}
+
+
+
+	// keyboard events
+	bool isKeyDown(SDL_Scancode key) const;
 private:
 	InputHandler() : 
 		m_bJoysticksInitialised(false), m_mousePosition(new Vector2D(0, 0)) {
@@ -57,7 +62,7 @@ private:
 	std::vector<std::vector<bool>> m_buttonStates;
 	std::vector<bool> m_mouseButtonStates;
 	bool m_bJoysticksInitialised{};
-
+	const Uint8* m_keystate;
 };
 typedef InputHandler TheInputHandler;
 

@@ -75,12 +75,12 @@ InputHandler* InputHandler::Instance()
 
 void InputHandler::update()
 {
+	m_keystate = SDL_GetKeyboardState(0);
 	SDL_Event event;
 	while (SDL_PollEvent(&event))
 	{
 		if (event.type == SDL_QUIT)
 		TheGame::Instance()->quit();
-	
 
 		if (event.type == SDL_JOYAXISMOTION)
 		{
@@ -201,7 +201,12 @@ void InputHandler::update()
 			m_mousePosition->setX((float)event.motion.x);
 			m_mousePosition->setY((float)event.motion.y);
 		}
-	}
+	
+
+
+}
+
+
 }
 
 
@@ -249,3 +254,19 @@ int InputHandler::yvalue(int joy, int stick)
 	return 0;
 }
 
+bool InputHandler::isKeyDown(SDL_Scancode key) const
+{
+	if (m_keystate != 0)
+	{
+		if (m_keystate[key] == 1)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	return false;
+}
