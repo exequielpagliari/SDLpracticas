@@ -63,7 +63,26 @@ private:
 	std::vector<bool> m_mouseButtonStates;
 	bool m_bJoysticksInitialised{};
 	const Uint8* m_keystate;
-};
+
+	//private functions to handle differents events types
+
+	// handle keyboards event
+	void onKeyDown();
+	void onKeyUp();
+
+	// handle mouse event
+	void onMouseMove(SDL_Event& event);
+	void onMouseButtomDown(SDL_Event& event);
+	void onMouseButtonUp(SDL_Event& event);
+	
+	// handle joystick events
+	void onJoystickAxisMove(SDL_Event& event);
+	void onJoystickButtonDown(SDL_Event& event);
+	void onJoystickButtonUp(SDL_Event& event);
+
+
+
+}; 
 typedef InputHandler TheInputHandler;
 
 #endif // ARCHIVO_SINGLETON
