@@ -26,7 +26,7 @@ public:
 
 	std::map<std::string, SDL_Texture*> m_textureMap;
 
-	void TextureManager::clearFromTextureMap(std::string id)
+	clearFromTextureMap(std::string id)
 	{
 		m_textureMap.erase(id);
 	}
