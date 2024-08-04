@@ -4,6 +4,9 @@
 #include <Enemy.h>
 #include <Background.h>
 #include <vector>
+#include <GameStateMachine.h>
+#pragma once
+
 
 
 #pragma once
@@ -36,7 +39,7 @@ private:
 	SDL_Window* m_pWindow;
 	SDL_Renderer* m_pRenderer;
 	Game();
-
+	GameStateMachine* m_pGameStateMachine;
 	
 	static Game* s_pInstance;
 	bool m_bRunning = false;

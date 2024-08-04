@@ -44,13 +44,13 @@ public:
 		return m_mousePosition;
 	}
 
-
+	void reset();
 
 	// keyboard events
 	bool isKeyDown(SDL_Scancode key) const;
 private:
 	InputHandler() : 
-		m_bJoysticksInitialised(false), m_mousePosition(new Vector2D(0, 0)) {
+		m_bJoysticksInitialised(false), m_mousePosition(new Vector2D(0, 0)), m_keystate(0) {
 		for (int i = 0; i < 3; i++)
 		{
 			m_mouseButtonStates.push_back(false);

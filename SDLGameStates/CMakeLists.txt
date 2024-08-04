@@ -28,6 +28,11 @@ add_executable(SDLGameStates WIN32 	main.cpp
 				src/SDLGameObject.cpp
 				src/InputHandler.cpp
 				src/Background.cpp
+				src/GameState.cpp
+				src/MenuState.cpp
+				src/PlayState.cpp
+				src/GameStateMachine.cpp
+				src/MenuButton.cpp
 				includes/Game.h
 				includes/TextureManager.h
 				includes/GameObject.h
@@ -38,6 +43,11 @@ add_executable(SDLGameStates WIN32 	main.cpp
 				includes/Vector2D.h
 				includes/InputHandler.h
 				includes/Background.h
+				includes/GameState.h
+				includes/MenuState.h
+				includes/PlayState.h
+				includes/GameStateMachine.h
+				includes/MenuButton.h
 				)
 
 target_link_libraries(SDLGameStates ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

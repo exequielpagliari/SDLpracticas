@@ -47,16 +47,15 @@ void Player::update()
 		{
 			m_velocity.setX(1);
 		}
+		else
+
 
 		if (TheInputHandler::Instance()->getMouseButtonState(RIGHT))
 		{
-			m_velocity.setX(1);
+			m_velocity.setX(-1);
 		}
 
-		if (TheInputHandler::Instance()->getMouseButtonState(MIDDLE))
-		{
-			m_velocity.setX(1);
-		}
+
 
 
 		
@@ -91,10 +90,10 @@ void Player::clean()
 
 void Player::handleInput()
 {
-
+	/*
 	Vector2D* vec = TheInputHandler::Instance()->getMousePosition();
 	m_velocity = (*vec - m_position) / 100;
-
+	*/
 	if (TheInputHandler::Instance()->joysticksInitialised())
 	{
 		if (TheInputHandler::Instance()->xvalue(0, 1) > 0 ||

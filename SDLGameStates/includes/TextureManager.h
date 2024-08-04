@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <map>
-
+#pragma once
 
 
 
@@ -26,11 +26,17 @@ public:
 
 	std::map<std::string, SDL_Texture*> m_textureMap;
 
+	void TextureManager::clearFromTextureMap(std::string id)
+	{
+		m_textureMap.erase(id);
+	}
+
 private:
 	static TextureManager* s_pInstance;
 	TextureManager() {}
 
 };
+typedef TextureManager TheTextureManager;
 
 
 	

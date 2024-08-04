@@ -111,6 +111,7 @@ void InputHandler::update()
 			onKeyDown();
 			break;
 		default:
+			reset();
 			break;
 		}
 
@@ -210,6 +211,8 @@ void InputHandler::onMouseButtomDown(SDL_Event& event)
 	{
 		m_mouseButtonStates[RIGHT] = false;
 	}
+
+	
 }
 
 void InputHandler::onMouseButtonUp(SDL_Event& event)
@@ -226,6 +229,15 @@ void InputHandler::onMouseButtonUp(SDL_Event& event)
 	{
 		m_mouseButtonStates[RIGHT] = true;
 	}
+
+	
+}
+
+void InputHandler::reset()
+{
+	m_mouseButtonStates[LEFT] = false;
+	m_mouseButtonStates[RIGHT] = false;
+	m_mouseButtonStates[MIDDLE] = false;
 }
 
 void InputHandler::onJoystickAxisMove(SDL_Event& event)
