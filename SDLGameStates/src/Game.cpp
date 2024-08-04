@@ -57,6 +57,7 @@ bool Game::init(const char* title, int xpos, int ypos, int width, int height, in
 	std::cout << "init success\n";
 	m_bRunning = true; // everything inited successfully,start the main loop
 	m_pGameStateMachine = new GameStateMachine();
+
 	m_pGameStateMachine->changeState(new MenuState());
 
 	
@@ -137,7 +138,8 @@ void Game::update()
 
 Game::Game() : m_pWindow(0),
 m_pRenderer(0),
-m_bRunning(false)
+m_bRunning(false),
+m_pGameStateMachine(0)
 {}
 
 Game::~Game()

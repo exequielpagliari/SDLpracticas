@@ -52,3 +52,6 @@ add_executable(SDLGameStates WIN32 	main.cpp
 
 target_link_libraries(SDLGameStates ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 
+#include(Doxygen)
+#Doxygen(src docs)
+

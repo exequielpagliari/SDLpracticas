@@ -30,7 +30,7 @@ public:
 	void clean();
 	SDL_Renderer* getRenderer() const { return m_pRenderer; }
 	void quit();
-
+	GameStateMachine* getStateMachine() { return m_pGameStateMachine; }
 
 
 

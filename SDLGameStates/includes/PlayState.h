@@ -9,4 +9,5 @@ public:
 	virtual std::string getStateID() const { return s_playID; }
 private:
 	static const std::string s_playID;
+
 };
