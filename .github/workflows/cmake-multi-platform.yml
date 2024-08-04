@@ -111,8 +111,8 @@ jobs:
     - name: Build SDLInputHandler
       run: cd SDLInputHandler && cmake --build build/
 
-    - name: Configure CMake SDLInputHandler
-      run: cd SDLInputHandler && cmake -B build ${{ matrix.os }} --debug-output   
+    - name: Configure CMake SDLGameStates
+      run: cd SDLGameStates && cmake -B build ${{ matrix.os }} --debug-output   
       
     - name: Build SDLGameStates
       run: cd SDLGameStates && cmake --build build/
