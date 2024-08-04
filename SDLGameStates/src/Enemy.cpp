@@ -5,30 +5,29 @@
 
 
 
-Enemy::Enemy(const LoaderParams* pParams, bool derecha) : SDLGameObject(pParams)
+Enemy::Enemy(const LoaderParams* pParams) : SDLGameObject(pParams), m_numFrames(5)
 {
+	m_velocity.setY(2);
+	m_velocity.setX(0.001);
 }
-
 void Enemy::draw()
 {
-	SDLGameObject::draw(); // we now use SDLGameObject
+	SDLGameObject::draw();
 }
 void Enemy::update()
 {
-	if (m_position.getX() < 1)
-		Enemy::derecha = true;
-	else if (m_position.getX() > 600)
-		Enemy::derecha = false;
-	if (Enemy::derecha)
-		m_acceleration.setX(0.1f);
-	else
-		m_acceleration.setX(-.1f);
-	m_currentFrame = int(((SDL_GetTicks() / 100) % 4));
-	if (m_velocity.getX() > -.05f || m_velocity.getX() < .05f)
-		SDLGameObject::update();
-	
-	
+	m_currentFrame = int(((SDL_GetTicks() / 100) % m_numFrames));
+	if (m_position.getY() < 0)
+	{
+		m_velocity.setY(2);
+	}
+	else if (m_position.getY() > 400)
+	{
+		m_velocity.setY(-2);
+	}
+	SDLGameObject::update();
 }
+
 void Enemy::clean()
 {
 }

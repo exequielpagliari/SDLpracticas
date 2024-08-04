@@ -33,6 +33,9 @@ add_executable(SDLGameStates WIN32 	main.cpp
 				src/PlayState.cpp
 				src/GameStateMachine.cpp
 				src/MenuButton.cpp
+				src/PauseState.cpp
+				src/AnimatedGraphic.cpp
+				src/GameOverState.cpp
 				includes/Game.h
 				includes/TextureManager.h
 				includes/GameObject.h
@@ -48,6 +51,9 @@ add_executable(SDLGameStates WIN32 	main.cpp
 				includes/PlayState.h
 				includes/GameStateMachine.h
 				includes/MenuButton.h
+				includes/PauseState.h
+				includes/AnimatedGraphic.h
+				includes/GameOverState.h
 				)
 
 target_link_libraries(SDLGameStates ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})

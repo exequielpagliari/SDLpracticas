@@ -1,17 +1,15 @@
 #include <SDLGameObject.h>
 
-
-
-// Enemy class
-class Enemy : public SDLGameObject
+class AnimatedGraphic: public SDLGameObject
 {
 public:
-	Enemy(const LoaderParams* pParams);
+	AnimatedGraphic(const LoaderParams * pParams, int animSpeed, int frames);
 	virtual void draw();
 	virtual void update();
 	virtual void clean();
-	
+
 	bool derecha = true;
 private:
 	int m_numFrames;
+	int	m_animSpeed;
 };
